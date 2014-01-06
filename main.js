@@ -19,7 +19,7 @@ function newPuzzle(boardDom) {
   for (var i = 0; i < 81; ++i) {
     var box = board.getBox(i);
     if (box.value > 0) {
-      box.fixed = true;
+      box.setFixed(true);
       box.domElement.innerHTML = box.value;
       box.domElement.classList.add('fixed');
     } else {

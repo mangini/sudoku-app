@@ -151,3 +151,24 @@ Board.prototype.getInvalidBoxes = function() {
 Board.prototype.check = function() {
   return this.getInvalidBoxes().length == 0;
 }
+
+Board.prototype.serialize = function() {
+  var result = [];
+  for (var i = 0; i < 81 ; ++i) {
+    var box = this.getBox(i);
+    result[i] = {
+      "value": box.value, 
+      "isFixed": box.fixed
+    };
+  }
+  return result;
+}
+
+Board.fromSerialized = function(simplifiedBoard) {
+  var board = new Board();
+  for (var i = 0; i < simplifiedBoard.length ; ++i) {
+    board.setBox(i, simplifiedBoard[i]);
+    board.getBox(i).setFixed(simplifiedBoard[i]["isFixed"]===true);
+
+  }
+}

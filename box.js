@@ -58,3 +58,6 @@ Box.prototype.isValid = function() {
 Box.prototype.isFixed = function() {
   return this.fixed == true;
 }
+Box.prototype.setFixed = function(fixed) {
+  this.fixed = fixed;
+}
